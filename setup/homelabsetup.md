@@ -1,189 +1,266 @@
-# pfSense Home Lab Setup #
+# pfSense Home Lab Setup
 
+## Overview
 
-# Overview
-This project documents the creation of a virtualized home lab environment using pfSense as a firewall and router. The objective was to simulate a small enterprise network for learning network security, firewall configuration, traffic analysis, vulnerability assessment, and penetration testing in a safe and isolated environment.
+This project documents the creation of a virtualized home lab environment using pfSense as a firewall and router. The lab simulates a small enterprise network and provides a foundation for learning networking, firewall administration, system configuration, and cybersecurity concepts in a safe and isolated environment.
 
+---
 
-# Objectives
-* Deploy pfSense as a virtual firewall.
-* Create separate WAN and LAN networks.
-* Connect client machines through the pfSense firewall.
+## Objectives
+
+* Deploy pfSense as a virtual firewall and router.
+* Create separate WAN and LAN network segments.
+* Connect multiple client machines through the firewall.
 * Provide internet access to internal hosts.
-* Prepare an environment for cybersecurity and networking labs.
+* Build a reusable environment for networking and cybersecurity practice.
 
+---
 
 ## Lab Architecture
-Internet
-↓
-WAN Interface
-↓
-pfSense Firewall
-↓
-LAN Interface
-↓
-Internal Virtual Network
-├── Kali Linux (Attacker Machine)
-├── Ubuntu Server/Desktop
-└── Additional Test Machines
 
+```text
+Internet
+    │
+    ▼
+WAN Interface
+    │
+    ▼
+pfSense Firewall
+    │
+    ▼
+LAN Interface
+    │
+    ▼
+Internal Virtual Network (LabNet)
+├── Kali Linux
+├── Ubuntu Linux
+└── Additional Test Machines
+```
+
+---
 
 ## Technologies Used
 
-* Oracle VirtualBox:                https://www.virtualbox.org/wiki/Downloads 
-* pfSense Community Edition         https://archive.org/download/pfSense-CE-2.6.0-RELEASE-amd64 (Download the iso file)
-* Kali Linux                        https://www.kali.org/get-kali/#kali-platforms
-* Ubuntu Linux                      https://ubuntu.com/download/desktop
+* Oracle VirtualBox
+  https://www.virtualbox.org/wiki/Downloads
 
+* pfSense Community Edition
+  https://archive.org/download/pfSense-CE-2.6.0-RELEASE-amd64
+
+* Kali Linux
+  https://www.kali.org/get-kali/#kali-platforms
+
+* Ubuntu Desktop
+  https://ubuntu.com/download/desktop
+
+---
 
 ## Virtual Machine Configuration
 
 ### pfSense
 
-Adapter 1 (WAN)
+#### Adapter 1 (WAN)
+
 * Mode: Bridged Adapter
 * Purpose: Internet Connectivity
-![alt text](/Adapter1.png)
 
-Adapter 2 (LAN)
+![WAN Adapter Configuration](Adapter1.png)
+
+#### Adapter 2 (LAN)
+
 * Mode: Internal Network
 * Network Name: LabNet
-![alt text](/Adapter2.png)
 
-
+![LAN Adapter Configuration](Adapter2.png)
 
 ### Kali Linux
-Adapter 1
+
+#### Adapter 1
+
 * Mode: Internal Network
 * Network Name: LabNet
-![alt text](/KaliAdapter1.png)
 
+![Kali Network Adapter](KaliAdapter1.png)
 
-### Ubuntu
-Adapter 1
+### Ubuntu Linux
+
+#### Adapter 1
+
 * Mode: Internal Network
 * Network Name: LabNet
-![alt text](/UbuntuAdapter1.png)
 
+![Ubuntu Network Adapter](UbuntuAdapter1.png)
+
+---
 
 ## Network Configuration
 
 ### WAN Interface
 
-* Obtains IP address from home router via DHCP.
-* Provides internet connectivity to the lab.
+* Obtains an IP address from the home router using DHCP.
+* Provides internet connectivity to the lab environment.
 
 ### LAN Interface
 
-* Default Gateway: pfSense LAN Interface
-* DHCP Server Enabled
-* Internal clients receive IP addresses automatically.
+* Configured with a private network address.
+* Serves as the default gateway for internal machines.
+* DHCP enabled to automatically assign addresses to clients.
 
+Example configuration:
+
+```text
+LAN Network: 10.0.0.0/24
+pfSense LAN IP: 10.0.0.1
+```
+
+---
 
 ## Deployment Process
 
 ### Step 1: Install pfSense
 
-* Downloaded pfSense ISO.
-* Created a VirtualBox VM.
-* Attached pfSense installation media.
-* Completed installation and rebooted.
-![alt text](/pfSense.png)
-Help Video: https://www.youtube.com/playlist?list=PL9Puyn_9KBpjmpB91oxl-j6_IM1mRsWLp
+* Download the pfSense ISO.
+* Create a new VirtualBox virtual machine.
+* Attach the pfSense ISO as installation media.
+* Complete the installation process.
+* Reboot the virtual machine.
+
+![pfSense Installation](pfSense.png)
+
+Reference Tutorial:
+
+https://www.youtube.com/playlist?list=PL9Puyn_9KBpjmpB91oxl-j6_IM1mRsWLp
+
+---
 
 ### Step 2: Configure Interfaces
 
-Assigned interfaces:
-WAN → Adapter 1
-LAN → Adapter 2
+Assign network adapters:
 
-Verified interface assignment through the pfSense console menu.
+```text
+WAN → Adapter 1 (Bridged Adapter)
 
-### Step 3: Configure LAN
+LAN → Adapter 2 (Internal Network)
+```
 
-Assigned LAN IP address.
+Verify interface assignments through the pfSense console menu.
+
+---
+
+### Step 3: Configure the LAN
+
+* Assign a LAN IP address.
+* Enable the DHCP server.
+* Save and apply the configuration.
 
 Example:
-10.0.0.1/24
-Enabled DHCP server for automatic client addressing.
 
-### Step 4: Configure Client Machines
+```text
+LAN IP: 10.0.0.1/24
+```
 
-Configured Kali Linux and Ubuntu to connect to the Internal Network.
-Verified DHCP lease assignment:
-ip addr        
+---
 
-To Verify connectivity:
+### Step 4: Install and Configure Kali Linux
+
+* Create a Kali Linux virtual machine.
+* Attach the Kali Linux ISO.
+* Complete the installation process.
+* Configure the network adapter to use the Internal Network (LabNet).
+* Obtain an IP address from the pfSense DHCP server.
+
+Verify connectivity:
+
+```bash
+ip addr
 ping 10.0.0.1
 ping google.com
+```
 
-### Step 5: Access pfSense Web Interface
+---
 
-Accessed:
+### Step 5: Install and Configure Ubuntu Linux
 
+* Create an Ubuntu virtual machine.
+* Attach the Ubuntu ISO.
+* Complete the installation process.
+* Configure the network adapter to use the Internal Network (LabNet).
+* Obtain an IP address from the pfSense DHCP server.
+
+Verify connectivity:
+
+```bash
+ip addr
+ping 10.0.0.1
+ping google.com
+```
+
+---
+
+### Step 6: Access the pfSense Web Interface
+
+Open a browser on Kali Linux or Ubuntu and navigate to:
+
+```text
 https://10.0.0.1
-Completed the setup wizard and configured administrative settings.
+```
 
+Complete the setup wizard and configure administrative settings.
 
-### Connectivity Testing
+---
 
-Verified:
+## Connectivity Testing
 
-* Client to pfSense communication.
-* Client to internet communication.
+The following checks were performed:
+
+* Client-to-pfSense communication.
+* Client-to-client communication.
+* Internet connectivity through pfSense.
 * DNS resolution.
-* Routing through pfSense.
 
 Commands used:
 
-ping google.com
-traceroute google.com
+```bash
 ip addr
+ping 10.0.0.1
+ping google.com
+```
 
-## Security Applications
-
-This lab can be used for:
-
-* Firewall Rule Testing
-* Network Segmentation
-* Packet Analysis
-* Vulnerability Assessment
-* Intrusion Detection
-* OWASP Testing
-* SIEM Integration
-* Penetration Testing Practice
-
+---
 
 ## Challenges Encountered
 
 ### Interface Assignment Confusion
 
-Initially assigned WAN and LAN adapters incorrectly, causing connectivity issues.
+Initially, the WAN and LAN adapters were assigned incorrectly, preventing internet connectivity.
 
-Resolution:
+**Resolution**
 
 * Reconfigured adapter assignments.
-* Verified interface mapping within pfSense.
+* Verified interface mappings through the pfSense console.
 
-### DHCP Issues
+### DHCP Configuration Issues
 
 Client machines initially failed to obtain IP addresses.
 
-Resolution:
+**Resolution**
 
-* Confirmed Internal Network configuration.
+* Confirmed Internal Network configuration in VirtualBox.
 * Verified DHCP server settings in pfSense.
 
+---
 
 ## Lessons Learned
 
-* Understanding WAN and LAN separation.
-* Basic firewall deployment and configuration.
-* DHCP and DNS troubleshooting.
-* Packet capture and analysis fundamentals.
-* Network segmentation concepts.
-* Virtualized lab design principles.
+* Virtual network design and segmentation.
+* WAN and LAN interface configuration.
+* DHCP and DNS fundamentals.
+* Firewall deployment and administration.
+* Virtual machine networking using VirtualBox.
+* Troubleshooting connectivity issues in isolated environments.
 
+---
 
 ## Conclusion
-This project successfully created a functional pfSense-based home lab capable of supporting networking and cybersecurity experiments. The environment provides a safe platform for learning firewall administration, network monitoring, traffic analysis, and offensive security techniques.
+
+This project successfully established a pfSense-based virtual home lab consisting of pfSense, Kali Linux, and Ubuntu Linux. The environment provides a flexible platform for learning networking, firewall administration, virtualization, and cybersecurity concepts while maintaining a safe and isolated testing environment.

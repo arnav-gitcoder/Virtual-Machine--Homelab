@@ -65,7 +65,7 @@ The challenge image was downloaded using:
 wget <image-url>
 ```
 
-![Image Download](/Download_Image.jpg)
+![Image Download](https://github.com/arnav-gitcoder/Virtual-Machine--Homelab/blob/main/CTF/Image-Steganography/Download_Image.png)
 ---
 
 ## Step 2 – Investigate the File

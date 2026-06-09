@@ -83,6 +83,7 @@ aplay Audio.wav
 During playback, the audio consisted of a sequence of Morse code tones rather than normal speech or sound.
 
 ### Screenshot
+![Audio Terminal](https://github.com/arnav-gitcoder/Virtual-Machine--Homelab/blob/main/CTF/The%20Suspicious%20Audio%20Transmission/Download_Audio.png)
 
 This indicated that the challenge required decoding Morse code.
 
@@ -95,7 +96,7 @@ The audio file was uploaded to an online Morse Code Audio Decoder.
 The decoder automatically converted the Morse code tones into binary values.
 
 ### Screenshot
-
+![Morse Translate]https://github.com/arnav-gitcoder/Virtual-Machine--Homelab/blob/main/CTF/The%20Suspicious%20Audio%20Transmission/Morse_Translate.png
 ### Extracted Binary Data
 
 ```text
@@ -116,7 +117,7 @@ Using the following operation: From Binary
 CyberChef successfully converted the binary data into readable text.
 
 ### Screenshot
-
+![CyberChef Conversion](https://github.com/arnav-gitcoder/Virtual-Machine--Homelab/blob/main/CTF/The%20Suspicious%20Audio%20Transmission/Cyberchef_fromBinary.png)
 ---
 
 ## Results

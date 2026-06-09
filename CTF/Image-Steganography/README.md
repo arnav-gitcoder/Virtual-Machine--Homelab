@@ -72,7 +72,7 @@ wget <image-url>
 
 Attempting to open the image produced an error indicating that the file format was not supported.
 
-![Image Error](/Image_Error.png)
+![Image Error](https://github.com/arnav-gitcoder/Virtual-Machine--Homelab/blob/main/CTF/Image-Steganography/Image_Error.png)
 
 This suggested that the file extension did not match the file's internal structure.
 
@@ -82,7 +82,7 @@ This suggested that the file extension did not match the file's internal structu
 
 The file was uploaded to CyberChef for hexadecimal analysis.
 
-![Cyberchef Analysis](/Codechef_tool.png)
+![Cyberchef Analysis](https://github.com/arnav-gitcoder/Virtual-Machine--Homelab/blob/main/CTF/Image-Steganography/Cyberchef_tool.png)
 
 The JPEG header was found to be corrupted.
 
@@ -120,7 +120,7 @@ FF D8 FF E0
 
 Once repaired, the image could be rendered successfully.
 
-![Recovered Image](/Restored_Image.png)
+![Recovered Image](https://github.com/arnav-gitcoder/Virtual-Machine--Homelab/blob/main/CTF/Image-Steganography/Restored_Image.png)
 
 ---
 
@@ -138,7 +138,7 @@ The extraction process revealed a hidden file named:
 flag.txt
 ```
 
-![Hidden Flag](/steghide_flag.png)
+![Hidden Flag](https://github.com/arnav-gitcoder/Virtual-Machine--Homelab/blob/main/CTF/Image-Steganography/steghide_flag.png)
 
 ---
 

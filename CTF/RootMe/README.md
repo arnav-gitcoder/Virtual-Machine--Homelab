@@ -141,7 +141,7 @@ The web server became the primary attack surface.
 ### Screenshot
 
 ```
-screenshots/01_nmap_scan.png
+![Nmap Scan](screenshots/01_nmap_scan.png)
 ```
 
 ---
@@ -166,7 +166,7 @@ The `/panel` upload page and `/uploads` directory suggested a potential file upl
 ### Screenshot
 
 ```
-screenshots/02_gobuster_scan.png
+![Gobuster](screenshots/02_gobuster_scan.png)
 ```
 
 ---
@@ -185,13 +185,13 @@ $port=1234;
 ### Screenshot
 
 ```
-screenshots/03_download_reverse_shell.png
+![Reverse Shell](screenshots/03_download_reverse_shell.png)
 ```
 
 Configured attacker IP.
 
 ```
-screenshots/04_configure_reverse_shell.png
+![Configure Reverse Shell](screenshots/04_configure_reverse_shell.png)
 ```
 
 ---
@@ -217,7 +217,7 @@ The application blocked `.php` files.
 ### Screenshot
 
 ```
-screenshots/05_php_upload_blocked.png
+![Upload php](screenshots/05_php_upload_blocked.png)
 ```
 
 ---
@@ -241,7 +241,7 @@ Apache still executes `.php5` files while the upload filter only blocked `.php`.
 ### Screenshot
 
 ```
-screenshots/06_rename_php5.png
+![Renamed php to php5](screenshots/06_rename_php5.png)
 ```
 
 ---
@@ -257,7 +257,7 @@ O arquivo foi upado com sucesso!
 ### Screenshot
 
 ```
-screenshots/07_upload_success.png
+![Upload php5](screenshots/07_upload_success.png)
 ```
 
 ---
@@ -281,7 +281,7 @@ was publicly accessible.
 ### Screenshot
 
 ```
-screenshots/08_verify_upload.png
+![Uploads page](screenshots/08_verify_upload.png)
 ```
 
 ---
@@ -305,7 +305,7 @@ uid=33(www-data)
 ### Screenshot
 
 ```
-screenshots/09_reverse_shell.png
+![Using Reverse Shell](screenshots/09_reverse_shell.png)
 ```
 
 ---
@@ -323,7 +323,7 @@ Despite several permission denied messages, the flag location was successfully i
 ### Screenshot
 
 ```
-screenshots/10_locating_user_flag.png
+![User Flag](screenshots/10_locating_user_flag.png)
 ```
 
 ---
@@ -345,7 +345,7 @@ Interesting binary discovered
 ### Screenshot
 
 ```
-screenshots/11_suid_enumeration.png
+![SUID Enumeration](screenshots/11_suid_enumeration.png)
 ```
 
 ---
@@ -357,7 +357,7 @@ Consulted GTFOBins and verified that Python could be abused for SUID privilege e
 ### Screenshot
 
 ```
-screenshots/12_gtfobins_python_suid.png
+![GTFObins](screenshots/12_gtfobins_python_suid.png)
 ```
 
 ---
@@ -391,7 +391,7 @@ cat /root/root.txt
 ### Screenshot
 
 ```
-screenshots/13_root_flag.png
+![Root Flag](screenshots/13_root_flag.png)
 ```
 
 ---

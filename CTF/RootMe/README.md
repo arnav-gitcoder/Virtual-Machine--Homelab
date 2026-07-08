@@ -140,9 +140,7 @@ The web server became the primary attack surface.
 
 ### Screenshot
 
-```
 ![Nmap Scan](screenshots/01_nmap_scan.png)
-```
 
 ---
 
@@ -165,9 +163,7 @@ The `/panel` upload page and `/uploads` directory suggested a potential file upl
 
 ### Screenshot
 
-```
 ![Gobuster](screenshots/02_gobuster_scan.png)
-```
 
 ---
 
@@ -184,15 +180,11 @@ $port=1234;
 
 ### Screenshot
 
-```
 ![Reverse Shell](screenshots/03_download_reverse_shell.png)
-```
 
 Configured attacker IP.
 
-```
 ![Configure Reverse Shell](screenshots/04_configure_reverse_shell.png)
-```
 
 ---
 
@@ -216,9 +208,7 @@ The application blocked `.php` files.
 
 ### Screenshot
 
-```
 ![Upload php](screenshots/05_php_upload_blocked.png)
-```
 
 ---
 
@@ -240,9 +230,7 @@ Apache still executes `.php5` files while the upload filter only blocked `.php`.
 
 ### Screenshot
 
-```
 ![Renamed php to php5](screenshots/06_rename_php5.png)
-```
 
 ---
 
@@ -256,9 +244,7 @@ O arquivo foi upado com sucesso!
 
 ### Screenshot
 
-```
 ![Upload php5](screenshots/07_upload_success.png)
-```
 
 ---
 
@@ -280,9 +266,7 @@ was publicly accessible.
 
 ### Screenshot
 
-```
 ![Uploads page](screenshots/08_verify_upload.png)
-```
 
 ---
 
@@ -304,9 +288,7 @@ uid=33(www-data)
 
 ### Screenshot
 
-```
 ![Using Reverse Shell](screenshots/09_reverse_shell.png)
-```
 
 ---
 
@@ -318,13 +300,11 @@ Searched for the user flag.
 find / -name user.txt
 ```
 
-Despite several permission denied messages, the flag location was successfully identified.
+Despite several permission-denied messages, the flag location was successfully identified.
 
 ### Screenshot
 
-```
 ![User Flag](screenshots/10_locating_user_flag.png)
-```
 
 ---
 
@@ -344,9 +324,7 @@ Interesting binary discovered
 
 ### Screenshot
 
-```
 ![SUID Enumeration](screenshots/11_suid_enumeration.png)
-```
 
 ---
 
@@ -356,9 +334,7 @@ Consulted GTFOBins and verified that Python could be abused for SUID privilege e
 
 ### Screenshot
 
-```
 ![GTFObins](screenshots/12_gtfobins_python_suid.png)
-```
 
 ---
 
@@ -390,9 +366,7 @@ cat /root/root.txt
 
 ### Screenshot
 
-```
 ![Root Flag](screenshots/13_root_flag.png)
-```
 
 ---
 
